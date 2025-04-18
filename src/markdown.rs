@@ -34,49 +34,37 @@ pub fn build_table(
         let review_state = match node.review_state() {
             PullRequestReviewState::APPROVED => {
                 format!(
-                    "![](https://img.shields.io/github/pulls/detail/state/{}/{}?label={})",
-                    repository,
-                    &node.number().to_string(),
+                    "![](https://img.shields.io/badge/-{}-green)",
                     "Approved"
                 )
             }
             PullRequestReviewState::MERGED => {
                 format!(
-                    "![](https://img.shields.io/github/pulls/detail/state/{}/{}?label={})",
-                    repository,
-                    &node.number().to_string(),
-                    "%20"
+                    "![](https://img.shields.io/badge/-{}-gray)",
+                    "Merged"
                 )
             }
             PullRequestReviewState::PENDING => {
                 format!(
-                    "![](https://img.shields.io/github/pulls/detail/state/{}/{}?label={})",
-                    repository,
-                    &node.number().to_string(),
+                    "![](https://img.shields.io/badge/-{}-yellow)",
                     "Pending"
                 )
             }
             PullRequestReviewState::CHANGES_REQUESTED => {
                 format!(
-                    "![](https://img.shields.io/github/pulls/detail/state/{}/{}?label={})",
-                    repository,
-                    &node.number().to_string(),
+                    "![](https://img.shields.io/badge/-{}-red)",
                     "Changes Requested"
                 )
             }
             PullRequestReviewState::DISMISSED => {
                 format!(
-                    "![](https://img.shields.io/github/pulls/detail/state/{}/{}?label={})",
-                    repository,
-                    &node.number().to_string(),
+                    "![](https://img.shields.io/badge/-{}-gray)",
                     "Dismissed"
                 )
             }
             PullRequestReviewState::COMMENTED => {
                 format!(
-                    "![](https://img.shields.io/github/pulls/detail/state/{}/{}?label={})",
-                    repository,
-                    &node.number().to_string(),
+                    "![](https://img.shields.io/badge/-{}-blue)",
                     "Commented"
                 )
             }
@@ -86,9 +74,7 @@ pub fn build_table(
             && *node.state() == PullRequestStatus::Closed
         {
             format!(
-                "![](https://img.shields.io/github/pulls/detail/state/{}/{}?label={})",
-                repository,
-                &node.number().to_string(),
+                "![](https://img.shields.io/badge/-{}-black)",
                 "Closed"
             )
         } else {
